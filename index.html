@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anmol Counter Application </title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        overflow: hidden; /* Prevent scrolling */
+    }
+
+    .video-background {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -1;
+    }
+
+    .main-container {
+        /* background-color: rgb(96, 245, 195); */
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: 40px;
+        color: #ffffffec;
+    }
+
+    h2 {
+        font-size: 80px;
+        color: #ffffffec;
+    }
+
+    .btn button, button {
+        padding: 10px 30px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        color: white;
+        -webkit-box-shadow: 6px 7px 29px -4px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 6px 7px 29px -4px rgba(0, 0, 0, 0.75);
+        box-shadow: 6px 7px 29px -4px rgba(0, 0, 0, 0.75);
+    }
+
+    .btn button:first-child {
+        background-color: green;
+    }
+
+    .btn button:first-child:hover {
+        opacity: 0.9;
+    }
+
+    .btn button:last-child {
+        background-color: red;
+    }
+
+    .btn button:last-child:hover {
+        opacity: 0.9;
+    }
+
+    .reset_btn{
+        background-color: darkkhaki;
+        color: black;
+    }
+    .reset_btn:hover{
+      opacity: 0.9;
+    }
+</style>
+
+<body>
+
+    <video class="video-background" autoplay loop muted>
+        <source src="./bg_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="main-container">
+        <h1>Anmol Counter 😁</h1>
+        <h2 id="result">0</h2>
+        <div class="btn">
+            <button onclick="add()">Add</button>
+            <button onclick="minus()">Minus</button>
+        </div>
+        <button class="reset_btn" onclick="reset()" >Reset</button>
+
+        <h1 id="congrats_value"></h1>
+        <audio id="winnerSound" src="./winning.wav" preload="auto"></audio>
+
+    </div>
+
+    <script>
+
+        let counter = 0;
+
+        const counterValue = document.getElementById('result');
+        const final_result = document.getElementById("congrats_value");
+        const winnerSound = document.getElementById("winnerSound");
+
+
+
+        function add() {
+            if(counter>=100){
+                final_result.innerHTML = "Congrats! you are the winner yuuhoooooooo! 🎉🎉"
+                winnerSound.play();
+            }else{
+            counter += 1;
+            counterValue.innerHTML = counter;
+            }
+        }
+
+        function minus(){
+
+            if(counter>0){
+            counter--;
+            counterValue.innerHTML = counter;
+            }
+        }
+
+        function reset(){
+            counter = 0;
+            counterValue.innerHTML = counter;
+            final_result.innerHTML = "";
+        }
+
+        // setInterval(add, 2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // resetBtn.addEventListener('click', reset);
+
+        // function reset() {
+        //     counter = 0;
+        //     counterValue.innerHTML = counter;
+        // }
+
+
+    </script>
+
+</body>
+
+</html>
