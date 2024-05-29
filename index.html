@@ -16,7 +16,8 @@
 
     body {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        overflow: hidden; /* Prevent scrolling */
+        overflow: hidden;
+        /* Prevent scrolling */
     }
 
     .video-background {
@@ -50,7 +51,8 @@
         color: #ffffffec;
     }
 
-    .btn button, button {
+    .btn button,
+    button {
         padding: 10px 30px;
         border-radius: 5px;
         border: none;
@@ -77,21 +79,29 @@
         opacity: 0.9;
     }
 
-    .reset_btn{
+    .reset_btn {
         background-color: darkkhaki;
         color: black;
     }
-    .reset_btn:hover{
-      opacity: 0.9;
+
+    .reset_btn:hover {
+        opacity: 0.9;
+    }
+
+    #congrats_value {
+        text-align: center;
+        padding: 5px 10px;
+        font-size: 28px;
     }
 </style>
 
 <body>
 
-    <video class="video-background" autoplay loop muted>
+    <video class="video-background" autoplay loop muted playsinline>
         <source src="./bg_video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+
 
     <div class="main-container">
         <h1>Anmol Counter 😁</h1>
@@ -100,7 +110,7 @@
             <button onclick="add()">Add</button>
             <button onclick="minus()">Minus</button>
         </div>
-        <button class="reset_btn" onclick="reset()" >Reset</button>
+        <button class="reset_btn" onclick="reset()">Reset</button>
 
         <h1 id="congrats_value"></h1>
         <audio id="winnerSound" src="./winning.wav" preload="auto"></audio>
@@ -118,51 +128,30 @@
 
 
         function add() {
-            if(counter>=100){
+            if (counter >= 100) {
                 final_result.innerHTML = "Congrats! you are the winner yuuhoooooooo! 🎉🎉"
                 winnerSound.play();
-            }else{
-            counter += 1;
-            counterValue.innerHTML = counter;
+            } else {
+                counter += 1;
+                counterValue.innerHTML = counter;
             }
         }
 
-        function minus(){
+        function minus() {
 
-            if(counter>0){
-            counter--;
-            counterValue.innerHTML = counter;
+            if (counter > 0) {
+                counter--;
+                counterValue.innerHTML = counter;
             }
         }
 
-        function reset(){
+        function reset() {
             counter = 0;
             counterValue.innerHTML = counter;
             final_result.innerHTML = "";
         }
 
         // setInterval(add, 2);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         // resetBtn.addEventListener('click', reset);
